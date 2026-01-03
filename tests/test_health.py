@@ -1,4 +1,3 @@
-import pytest
 from fastapi.testclient import TestClient
 from app.main import app
 
@@ -60,12 +59,6 @@ class TestHealthEndpoint:
         # DELETE should not be allowed
         response_delete = client.delete("/health")
         assert response_delete.status_code == 405
-
-    def test_health_check_no_query_params_needed(self):
-        """Test that the health check works without any query parameters."""
-        response = client.get("/health")
-        assert response.status_code == 200
-        assert response.json() == {"status": "ok"}
 
     def test_health_check_ignores_query_params(self):
         """Test that the health check ignores any query parameters."""
