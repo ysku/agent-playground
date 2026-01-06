@@ -7,7 +7,7 @@ app = FastAPI()
 def health_check():
     """
     Health check endpoint that returns the status of the application.
-    
+
     Returns:
         dict: A JSON response with status "ok"
     """
@@ -18,7 +18,7 @@ def health_check():
 def readiness_check():
     """
     Readiness check endpoint that returns the readiness status of the application.
-    
+
     Returns:
         dict: A JSON response with status "ok"
     """
