@@ -1,16 +1,26 @@
+[project]
+name = "agent-playground"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.128.0",
+    "httpx>=0.28.1",
+    "uvicorn>=0.40.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "ruff>=0.9.3",
+]
+
 [tool.ruff]
 # Set the maximum line length to 88 (black's default)
 line-length = 88
 
-# Assume Python 3.8+
-target-version = "py38"
-
-# Enable default rules
-select = [
-    "E",  # pycodestyle errors
-    "W",  # pycodestyle warnings
-    "F",  # pyflakes
-]
+# Assume Python 3.13+
+target-version = "py313"
 
 # Exclude common directories
 exclude = [
@@ -23,6 +33,14 @@ exclude = [
     ".ruff_cache",
     "build",
     "dist",
+]
+
+[tool.ruff.lint]
+# Enable default rules
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
 ]
 
 [tool.ruff.format]
