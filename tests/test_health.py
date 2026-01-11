@@ -42,9 +42,16 @@ class TestHealthEndpoint:
         response1 = client.get("/health")
         response2 = client.get("/health")
         response3 = client.get("/health")
-        
-        assert response1.status_code == response2.status_code == response3.status_code == 200
-        assert response1.json() == response2.json() == response3.json() == {"status": "ok"}
+
+        assert (
+            response1.status_code
+            == response2.status_code
+            == response3.status_code
+            == 200
+        )
+        assert (
+            response1.json() == response2.json() == response3.json() == {"status": "ok"}
+        )
 
     def test_health_check_method_not_allowed(self):
         """Test that non-GET methods are not allowed on the health endpoint."""
