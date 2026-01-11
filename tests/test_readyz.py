@@ -42,9 +42,16 @@ class TestReadyzEndpoint:
         response1 = client.get("/readyz")
         response2 = client.get("/readyz")
         response3 = client.get("/readyz")
-        
-        assert response1.status_code == response2.status_code == response3.status_code == 200
-        assert response1.json() == response2.json() == response3.json() == {"status": "ok"}
+
+        assert (
+            response1.status_code
+            == response2.status_code
+            == response3.status_code
+            == 200
+        )
+        assert (
+            response1.json() == response2.json() == response3.json() == {"status": "ok"}
+        )
 
     def test_readyz_check_method_not_allowed(self):
         """Test that non-GET methods are not allowed on the readyz endpoint."""
